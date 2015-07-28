@@ -12,7 +12,6 @@ import java.io._
 // What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
 
 object Problem24 {
-  
   def next(permutation: List[Int]) : List[Int] = {
     val permLength = permutation.length
     var increasing = increasingSequence(permutation)
@@ -28,7 +27,7 @@ object Problem24 {
     var valToCycle = permutation(increasingSequenceLength)
     
     // find next highest value in the increasing sequence
-    val nextHighest = permutation.sorted find {_ > valToCycle} get
+    val nextHighest = increasingSequence.sorted find {_ > valToCycle} get
     var firstPart = ((increasingSequence filter {_ != nextHighest}) :+ valToCycle).sortWith(_ > _) :+ nextHighest
     firstPart ++ remainder
   }
@@ -47,11 +46,11 @@ object Problem24 {
 	def main(args: Array[String]) = {
     //println(decreasingSequence(List(4,3,2,1,0)))
     var seq = List(9,8,7,6,5,4,3,2,1,0)
-    for (i <- 0 to 1) {
+    for (i <- 1 to 1000000) {
+      if (i == 1000000) {
+        println("Problem 24: " + seq.reverse)
+      }
       seq = next(seq)
-      println(seq)
     }
- //  println("Problem 24: " + permutation.reverse)
- // }
   }
 }
