@@ -33,7 +33,31 @@ object Problem27 {
   private def prime(i: Long) =
     prime3 takeWhile (math.sqrt(i).>= _) forall { i % _ != 0 }
 
+  def primeSequence(a: Int, b: Int): Int = {
+    var n = 0;
+    while (is(abs(n*n + a*n + b))) {
+      n += 1
+      //println(n*n + a*n + b + " prime")
+    }
+    n
+  }
+  
   def main(args: Array[String]) = {
+    var aMax = 0;
+    var bMax = 0;
+    var seqMax = 0
+    for (a <- -1000 to 1000; b <- -1000 to 1000) {
+      //println(a + "," + b)
+      if (is(b)) {
+        val seqLen = primeSequence(a, b)
+        if (seqLen > seqMax) {
+          seqMax = seqLen
+          aMax = a
+          bMax = b
+          println(seqMax + "," + a + "," + b + " = " + a*b)
+        }
+      }
+    }
 //    println("Problem27: " + maxCycle)
   }
 }
