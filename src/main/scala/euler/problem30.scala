@@ -13,7 +13,7 @@ object Problem30 {
   }
   
   def main(args: Array[String]) = {
-    var list = for (i <- 1 to 295245; if i == sumOfDigitPowers(i)) yield i
-    println("Problem 30: " + list)    
+    var list = for (i <- 2 to 295245; if i == sumOfDigitPowers(i)) yield i
+    println("Problem 30: " + list.sum)    
   }
 }
