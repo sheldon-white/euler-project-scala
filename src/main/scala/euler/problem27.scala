@@ -54,10 +54,10 @@ object Problem27 {
           seqMax = seqLen
           aMax = a
           bMax = b
-          println(seqMax + "," + a + "," + b + " = " + a*b)
+          //println(seqMax + "," + a + "," + b + " = " + a*b)
         }
       }
     }
-//    println("Problem27: " + maxCycle)
+    println("Problem27: " + aMax*bMax)
   }
 }
