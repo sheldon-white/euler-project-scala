@@ -11,7 +11,7 @@ object Problem25 {
 	val fibs: Stream[BigInt] = BigInt(1) #:: BigInt(1) #:: fibs.zip(fibs.tail).map { n => n._1 + n._2 }
 
   def main(args: Array[String]) = {
-    var smallFibs: List[BigInt] = fibs.takeWhile({_.toString.toList.length < 1000}).toList
-    println(smallFibs.toList.length)
+    var smallFibs = fibs.takeWhile({_.toString.toList.length < 1000}).toList
+    println(smallFibs.length)
   }
 }
