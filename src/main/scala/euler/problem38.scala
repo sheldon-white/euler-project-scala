@@ -31,11 +31,11 @@ object Problem38 {
   def main(args: Array[String]) = {
     def solutions0 = List(918273645)
     def case1Combos = for (a <- 1 to 3; b <- 1 to 9; c <- 1 to 9) yield 100*a + 10*b + c 
-    def solutions1 = case1Combos filter {n => numberIsPandigital(n * 1002003)} map {n => n * 1002003}
+    def solutions1 = case1Combos map {n => n * 1002003} filter {n => numberIsPandigital(n)}
     def case2Combos = for (a <- 1 to 3; b <- 1 to 9) yield 10*a + b
-    def solutions2 = case2Combos filter {n => numberIsPandigital(n * 10203004)} map {n => n * 10203004}
+    def solutions2 = case2Combos map {n => n * 10203004} filter {n => numberIsPandigital(n)}
     def case3Combos = for (a <- 1 to 9; b <- 1 to 9; c <- 1 to 9; d <- 1 to 9) yield 1000*a + 100*b + 10*c + d
-    def solutions3 = case3Combos filter {n => numberIsPandigital(n * 100002)} map {n => n * 100002}
+    def solutions3 = case3Combos map {n => n * 100002} filter {n => numberIsPandigital(n)}
     def solution = List(solutions0, solutions1, solutions2, solutions3).flatten.sorted.last
     println("Problem 38: " + solution)
   }
