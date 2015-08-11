@@ -42,6 +42,6 @@ object Problem44 {
     val matches = findMatches(100000).sorted
     println(matches)
 
-    println("Problem 43: " + matches(0))
+    println("Problem 44: " + matches(0))
   }
 }
