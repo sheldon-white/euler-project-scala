@@ -3,8 +3,7 @@ package euler
 import scala.collection.mutable._
 import scala.collection.immutable._
 import scala.math._
-
-
+import util.Time._
 
 // n -> n/2 (n is even)
 // n -> 3n + 1 (n is odd)
@@ -30,17 +29,19 @@ object Problem14 {
   }
 
   def main(args: Array[String]) = {
-    var maxLen = 0
-    var maxIdx = 0
-    for (i <- 1 to 1000000)
-    {
-      var len = sequenceLen(i)
-      if (len > maxLen)
+    time {
+      var maxLen = 0
+      var maxIdx = 0
+      for (i <- 1 to 1000000)
       {
-        maxLen = len
-        maxIdx = i
+        var len = sequenceLen(i)
+        if (len > maxLen)
+        {
+          maxLen = len
+          maxIdx = i
+        }
       }
+      println("Problem 14: " + maxIdx + ", " + maxLen)
     }
-    println("Problem 14: " + maxIdx + ", " + maxLen)  
   }
 }

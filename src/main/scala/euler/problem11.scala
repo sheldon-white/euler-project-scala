@@ -3,6 +3,7 @@ package euler
 import scala.collection.mutable._
 import scala.collection.immutable._
 import scala.math._
+import util.Time._
 
 // Problem 11:
 // In the 20 x 20 grid below, four numbers along a diagonal line have been marked in red.
@@ -67,6 +68,8 @@ object Problem11 {
     yield (values(y)(x+3) * values(y+1)(x+2) * values(y+2)(x+1) * values(y+3)(x))).max
 
 	def main(args: Array[String]) = {
-    println("Problem11: " + List(maxHorizontalProduct,maxVerticalProduct,maxDiag1Product,maxDiag2Product).max)
+    time {
+      println("Problem11: " + List(maxHorizontalProduct,maxVerticalProduct,maxDiag1Product,maxDiag2Product).max)
+    }
   }
 }

@@ -4,6 +4,7 @@ import scala.collection.mutable._
 import scala.collection.immutable._
 import scala.math._
 import BigInt._
+import util.Time._
 
 //You are given the following information, but you may prefer to do some research for yourself.
 //
@@ -26,24 +27,26 @@ object Problem19 {
   }
     
 	def main(args: Array[String]) = {
-    var sundayCount = 0
-    var firstDay1900 = 1 // 0 = sunday, 6 = saturday
-    var currentDay = (1 + 365) % 7 // first day of 1901 was a tuesday, 1900 wasn't a leap year
-    for (year <- 1901 to 2000) {
-      var lengths = monthLengths
-      if (isLeapYear(year)) {
-        lengths = lyMonthLengths
-      }
-      var mIndex = 1
-      for (length <- lengths) {
-        mIndex += 1       
-        currentDay = (currentDay + length) % 7
-        if (currentDay == 0) {
-          sundayCount += 1
-          //println("SUNDAY")
+    time {
+      var sundayCount = 0
+      var firstDay1900 = 1 // 0 = sunday, 6 = saturday
+      var currentDay = (1 + 365) % 7 // first day of 1901 was a tuesday, 1900 wasn't a leap year
+      for (year <- 1901 to 2000) {
+        var lengths = monthLengths
+        if (isLeapYear(year)) {
+          lengths = lyMonthLengths
+        }
+        var mIndex = 1
+        for (length <- lengths) {
+          mIndex += 1       
+          currentDay = (currentDay + length) % 7
+          if (currentDay == 0) {
+            sundayCount += 1
+            //println("SUNDAY")
+          }
         }
       }
+      println("Problem 19: " + sundayCount)
     }
-    println("Problem 19: " + sundayCount)
   }
 }

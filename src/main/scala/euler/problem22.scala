@@ -4,6 +4,7 @@ import scala.collection.mutable._
 import scala.math._
 import BigInt._
 import java.io._
+import util.Time._
 
 // Using names.txt (right click and 'Save Link/Target As...'), a 46K text file containing over
 // five-thousand first names, begin by sorting it into alphabetical order.
@@ -27,13 +28,15 @@ object Problem22 {
   }
   
 	def main(args: Array[String]) = {
-    val words = readNames()
-    var i = 1
-    var sum = 0
-    for (word <- words) {
-      sum += i * nameValue(word)
-      i += 1
+    time {
+      val words = readNames()
+      var i = 1
+      var sum = 0
+      for (word <- words) {
+        sum += i * nameValue(word)
+        i += 1
+      }
+      println("Problem 22: " + sum)
     }
-   println("Problem 22: " + sum)
   }
 }

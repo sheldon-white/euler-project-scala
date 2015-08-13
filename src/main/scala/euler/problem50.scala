@@ -15,9 +15,9 @@ import scala.util.control.Breaks._
 object Problem50 {
   //val maxPrime = 1000
   val maxPrime = 1000000
-  val minSequenceLength = 500
+  val minSequenceLength = 400
   
-  def calculateMaxStartOfSeq(smallPrimes: List[Long]): Int = {
+  def calculateMaxStartOfSeq(smallPrimes: Vector[Long]): Int = {
     for (i <- 0 until smallPrimes.size) {
       if (smallPrimes(i) > maxPrime / minSequenceLength) {
         println(smallPrimes(i))
@@ -27,17 +27,17 @@ object Problem50 {
     return 0
   }
 
-  def calculateSums(smallPrimes: List[Long]): List[Long] = {
+  def calculateSums(smallPrimes: Vector[Long]): Vector[Long] = {
     var primeSums = ListBuffer[Long]()
     var total: Long = 0;
     for (p <- 0 until smallPrimes.size) {
       primeSums += total
       total += smallPrimes(p)
     }
-    primeSums toList
+    primeSums toVector
   }
 
-  def maxPrimeSequence(smallPrimes: List[Long]): Tuple2[Long, Int] = {
+  def maxPrimeSequence(smallPrimes: Vector[Long]): Tuple2[Long, Int] = {
     val primeSums = calculateSums(smallPrimes)
     val maxStartIdx = calculateMaxStartOfSeq(smallPrimes)
     val maximii = new HashMap[Long, Int]()
@@ -65,7 +65,7 @@ object Problem50 {
   
   def main(args: Array[String]) = {
     time {
-      val smallPrimes = Prime.primes.takeWhile(_ < maxPrime) toList
+      val smallPrimes = Prime.primes.takeWhile(_ < maxPrime) toVector
       val maxSequence = maxPrimeSequence(smallPrimes)
       println("Problem 50: " + maxSequence)
     }

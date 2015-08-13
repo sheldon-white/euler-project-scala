@@ -3,6 +3,7 @@ package euler
 import scala.collection.immutable._
 import scala.math._
 import BigInt._
+import util.Time._
 
 //Let d(n) be defined as the sum of proper divisors of n (numbers less than n which divide evenly into n).
 //If d(a) = b and d(b) = a, where a != b, then a and b are an amicable pair and each of a and b are called amicable numbers.
@@ -18,14 +19,16 @@ object Problem21 {
   }
   
 	def main(args: Array[String]) = {
-    var anTotal = 0
-    for (num <- 1 to 10000) {
-      var sum = factorSum(num)
-      if (sum != num && factorSum(sum) == num) {
-        //println(num + " and " + sum + " are amiable")
-        anTotal += num
+    time {
+      var anTotal = 0
+      for (num <- 1 to 10000) {
+        var sum = factorSum(num)
+        if (sum != num && factorSum(sum) == num) {
+          //println(num + " and " + sum + " are amiable")
+          anTotal += num
+        }
       }
+      println("Problem 21: " + anTotal)
     }
-    println("Problem 21: " + anTotal)
   }
 }

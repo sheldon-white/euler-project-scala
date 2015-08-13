@@ -4,6 +4,7 @@ import scala.collection.mutable._
 import scala.collection.immutable._
 import scala.math._
 import BigInt._
+import util.Time._
 
 // Find the sum of the digits in the number 100!
 object Problem20 {
@@ -19,7 +20,8 @@ object Problem20 {
   }
 
 	def main(args: Array[String]) = {
-    val length = factorial(100).toString.toList.foldLeft(0)(_ + _ - '0')
-    println("Problem 20: " + length)
+    time {
+      println("Problem 20: " + factorial(100).toString.toList.foldLeft(0)(_ + _ - '0'))
+    }
   }
 }

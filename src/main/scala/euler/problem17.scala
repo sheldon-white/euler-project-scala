@@ -4,6 +4,7 @@ import scala.collection.mutable._
 import scala.collection.immutable._
 import scala.math._
 import BigInt._
+import util.Time._
 
 // If the numbers 1 to 5 are written out in words: one, two, three, four, five, then
 // there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.
@@ -54,8 +55,10 @@ object Problem17 {
   }
    
 	def main(args: Array[String]) = {
-    val allNumbers = for (i <- 1 to 1000) yield verbiage(i)
-    val totalChars = allNumbers.map {_.length}.foldLeft(0) (_ + _)
-    println("Problem 17: " + totalChars)  
+    time {
+      val allNumbers = for (i <- 1 to 1000) yield verbiage(i)
+      val totalChars = allNumbers.map {_.length}.foldLeft(0) (_ + _)
+      println("Problem 17: " + totalChars)
+    }
   }
 }

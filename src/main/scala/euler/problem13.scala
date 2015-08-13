@@ -3,6 +3,7 @@ package euler
 import scala.collection.mutable._
 import scala.collection.immutable._
 import scala.math._
+import util.Time._
 
 // Find the first 10 digits of the sum of some big numbers.
 object Problem13 {   
@@ -108,8 +109,10 @@ object Problem13 {
 "20849603980134001723930671666823555245252804609722",
 "53503534226472524250874054075591789781264330331690")
 
- def main(args: Array[String]) = {
-    var sum = numList.map { BigInt.apply(_) }.reduceLeft {_ + _}
-    println("Problem 13: " + sum.toString.substring(0, 10)) 
+  def main(args: Array[String]) = {
+    time {
+      var sum = numList.map { BigInt.apply(_) }.reduceLeft {_ + _}
+      println("Problem 13: " + sum.toString.substring(0, 10))
+    }
   }
 }
