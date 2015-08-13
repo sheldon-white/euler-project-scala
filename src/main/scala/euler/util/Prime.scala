@@ -24,7 +24,7 @@ object Prime {
   }
   
 
-  private def primes: Stream[Long] = 2 #:: prime3
+  def primes: Stream[Long] = 2 #:: prime3
 
   // performance: avoid redundant divide by two, so this starts at 3
   private val prime3: Stream[Long] = {
