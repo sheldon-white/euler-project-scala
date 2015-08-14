@@ -2,6 +2,7 @@ package euler
 
 import scala.collection.mutable._
 import scala.math._
+import util.Time._
 
 // The fraction 49/98 is a curious fraction, as an inexperienced mathematician in attempting to simplify it may
 // incorrectly believe that 49/98 = 4/8, which is correct, is obtained by canceling the 9s.
@@ -48,10 +49,12 @@ object Problem33 {
   }
   
   def main(args: Array[String]) = {
-    permutations foreach checkPermutation
-    val numerator = solutions.foldLeft(1) {_ * _._1}
-    val denominator = solutions.foldLeft(1) {_ * _._2}
-    solutions foreach println
-    println("Problem 33: " + denominator / numerator)    
+    time {
+      permutations foreach checkPermutation
+      val numerator = solutions.foldLeft(1) {_ * _._1}
+      val denominator = solutions.foldLeft(1) {_ * _._2}
+      solutions foreach println
+      println("Problem 33: " + denominator / numerator)
+    }
   }
 }

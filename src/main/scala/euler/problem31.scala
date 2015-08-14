@@ -2,6 +2,7 @@ package euler
 
 import scala.collection.mutable._
 import scala.math._
+import util.Time._
 
 // In England the currency is made up of pound, £, and pence, p, and there are eight coins in general circulation:
 //
@@ -46,6 +47,8 @@ object Problem31 {
   }
   
   def main(args: Array[String]) = {
-    println("Problem 31: " + partitions(200, coins))    
+    time {
+      println("Problem 31: " + partitions(200, coins))
+    }
   }
 }

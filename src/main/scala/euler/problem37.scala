@@ -3,6 +3,7 @@ package euler
 import scala.collection.mutable._
 import scala.math._
 import util.Prime
+import util.Time._
 
 // The number 3797 has an interesting property. Being prime itself, it is possible to continuously
 // remove digits from left to right, and remain prime at each stage: 3797, 797, 97, and 7.
@@ -75,16 +76,13 @@ object Problem37 {
   }
   
   def main(args: Array[String]) = {
-//    println(Prime.isPrime(1))
-//    List(1, 2, 3, 5, 7, 9) foreach { findTruncatables(_) }
-//    println(allSolutions)
-//    allSolutions.clear()
-    for (i <- 11 to 1000000) {
-      if (Prime.isPrime(i) && checkKids(i, CHECK_FROM_RIGHT) && checkKids(i, CHECK_FROM_LEFT)) {
-        allSolutions.add(i)
+    time {
+      for (i <- 11 to 1000000) {
+        if (Prime.isPrime(i) && checkKids(i, CHECK_FROM_RIGHT) && checkKids(i, CHECK_FROM_LEFT)) {
+          allSolutions.add(i)
+        }
       }
+      println("Problem 37: " + allSolutions.sum)
     }
-    println(allSolutions)
-    println("Problem 37: " + allSolutions.sum)
   }
 }

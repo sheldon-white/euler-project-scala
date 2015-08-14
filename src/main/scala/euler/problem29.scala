@@ -4,6 +4,7 @@ import scala.collection.mutable._
 import scala.math._
 import BigInt._
 import java.io._
+import util.Time._
 
 // Consider all integer combinations of a^b for 2 ≤ a ≤ 5 and 2 ≤ b ≤ 5:
 //
@@ -37,13 +38,15 @@ object Problem29 {
   def allFactorizations = (2 to 100) map {factorization}
   
   def main(args: Array[String]) = {
-    var allPowers = HashSet[String]()
-    for (pow <- 2 to 100) {
-      for (factorization <- allFactorizations) {
-        val numToPow = (for ((k,v) <- factorization) yield (k, pow * v)).toMap
-        allPowers += numToPow.toString
+    time {
+      var allPowers = HashSet[String]()
+      for (pow <- 2 to 100) {
+        for (factorization <- allFactorizations) {
+          val numToPow = (for ((k,v) <- factorization) yield (k, pow * v)).toMap
+          allPowers += numToPow.toString
+        }
       }
+      println("Problem 29: " + allPowers.size)
     }
-    println("Problem 29: " + allPowers.size)
   }
  }

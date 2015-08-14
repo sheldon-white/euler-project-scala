@@ -3,6 +3,7 @@ package euler
 import scala.collection.mutable._
 import scala.math._
 import util.Prime
+import util.Time._
 
 // The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719,
 // are themselves prime.
@@ -24,7 +25,9 @@ object Problem35 {
   }
   
   def main(args: Array[String]) = {
-    var total = (2 to 1000000).filter(n => isCircular(n)).size
-    println("Problem 34: " + total)    
+    time {
+      var total = (2 to 1000000).filter(n => isCircular(n)).size
+      println("Problem 34: " + total)
+    }
   }
 }

@@ -2,6 +2,7 @@ package euler
 
 import scala.collection.mutable._
 import scala.math._
+import util.Time._
 
 // 145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
 // Find the sum of all numbers which are equal to the sum of the factorial of their digits.
@@ -24,7 +25,9 @@ object Problem34 {
   }
   
   def main(args: Array[String]) = {
-    var total = (3 to 10000000).filter(num => num == numToFactorialSum(num)).sum
-    println("Problem 34: " + total)    
+    time {
+      var total = (3 to 10000000).filter(num => num == numToFactorialSum(num)).sum
+      println("Problem 34: " + total)
+    }
   }
 }

@@ -2,6 +2,7 @@ package euler
 
 import scala.collection.mutable._
 import scala.math._
+import util.Time._
 
 // We shall say that an n-digit number is pandigital if it makes use of all the digits 1 to n exactly once;
 // for example, the 5-digit number, 15234, is 1 through 5 pandigital.
@@ -43,10 +44,12 @@ object Problem32 {
   }
   
   def main(args: Array[String]) = {
-    for (permutation <- permutations) {
-      case1(permutation)
-      case2(permutation)
+    time {
+      for (permutation <- permutations) {
+        case1(permutation)
+        case2(permutation)
+      }
+      println("Problem 32: " + matchingProducts.sum)
     }
-    println("Problem 32: " + matchingProducts.sum)    
   }
 }

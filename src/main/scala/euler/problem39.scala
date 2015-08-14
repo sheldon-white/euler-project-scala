@@ -3,6 +3,7 @@ package euler
 import scala.collection.mutable._
 import scala.math._
 import util.Prime
+import util.Time._
 
 // If p is the perimeter of a right angle triangle with integral length sides, {a,b,c},
 // there are exactly three solutions for p = 120.
@@ -35,9 +36,11 @@ object Problem39 {
   }
   
   def main(args: Array[String]) = {
-    findTriples(1000)
-    val solution = counts.maxBy(_._2)._1
-    println(counts(solution))
-    println("Problem 39: " + solution)
+    time {
+      findTriples(1000)
+      val solution = counts.maxBy(_._2)._1
+      println(counts(solution))
+      println("Problem 39: " + solution)
+    }
   }
 }
