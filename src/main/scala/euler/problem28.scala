@@ -4,6 +4,7 @@ import scala.collection.mutable._
 import scala.math._
 import BigInt._
 import java.io._
+import util.Time._
 
 // Starting with the number 1 and moving to the right in a clockwise direction a 5 by 5 spiral is formed as follows:
 //
@@ -33,19 +34,11 @@ import java.io._
 // f(n) = 16/3n^2 + 10n + 26/3
 
 object Problem28 {
-    def main(args: Array[String]) = {
-    def f(n: Int): Int = {
-      16*n*n + 4*n + 4
+  def main(args: Array[String]) = {
+    time {
+      def f(n: Int) = 16*n*n + 4*n + 4   
+      val result = (1 to 500).map(f(_)).sum + 1
+      println("Problem28: " + result)
     }
-    
-    val result = (1 to 500).map(f(_)).sum + 1
-    println("Problem28: " + result)
   }
-
-//  def main(args: Array[String]) = {
-//    def f(n: Int): Int = {
-//      (16/3)*n*n*n + 10*n*n + (26/3)*n + 1
-//    }
-//    println("Problem28: " + f(500))
-//  }
- }
+}

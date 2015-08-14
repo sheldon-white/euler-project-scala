@@ -4,6 +4,7 @@ import scala.collection.mutable._
 import scala.math._
 import BigInt._
 import java.io._
+import util.Time._
 
 // A perfect number is a number for which the sum of its proper divisors is exactly equal to the number.
 // For example, the sum of the proper divisors of 28 would be 1 + 2 + 4 + 7 + 14 = 28,
@@ -28,13 +29,12 @@ object Problem23 {
    }
    
 	def main(args: Array[String]) = {
-    var abundantNumbers: HashSet[Int] = (for (i <- 1 to 28123; if isAbundant(i)) yield i)(collection.breakOut)
-    //println(abundantNumbers)
-    var sumsOfTwo = for (i <- 1 to 28123; aNum <- abundantNumbers;
+    time {
+      var abundantNumbers: HashSet[Int] = (for (i <- 1 to 28123; if isAbundant(i)) yield i)(collection.breakOut)
+      var sumsOfTwo = for (i <- 1 to 28123; aNum <- abundantNumbers;
         if (i > aNum && abundantNumbers.contains(i - aNum))) yield i
-    //println(sumsOfTwo)
-    var notSumsOfTwo = for (i <- 1 to 28123; if !sumsOfTwo.contains(i)) yield i
-    //println(notSumsOfTwo)
-    println("Problem 23: " + notSumsOfTwo.foldLeft(0) {_ + _})
+      var notSumsOfTwo = for (i <- 1 to 28123; if !sumsOfTwo.contains(i)) yield i
+      println("Problem 23: " + notSumsOfTwo.foldLeft(0) {_ + _})
+    }
   }
 }

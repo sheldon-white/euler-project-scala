@@ -5,6 +5,7 @@ import scala.math._
 import BigInt._
 import java.io._
 import util.Prime
+import util.Time._
 
 // Considering quadratics of the form:
 // n^2 + an + b, where |a| < 1000 and |b| < 1000
@@ -18,27 +19,26 @@ object Problem27 {
     var n = 0;
     while (Prime.isPrime(abs(n*n + a*n + b))) {
       n += 1
-      //println(n*n + a*n + b + " prime")
     }
     n
   }
   
   def main(args: Array[String]) = {
-    var aMax = 0;
-    var bMax = 0;
-    var seqMax = 0
-    for (a <- -1000 to 1000; b <- -1000 to 1000) {
-      //println(a + "," + b)
-      if (Prime.isPrime(b)) {
-        val seqLen = primeSequence(a, b)
-        if (seqLen > seqMax) {
-          seqMax = seqLen
-          aMax = a
-          bMax = b
-          //println(seqMax + "," + a + "," + b + " = " + a*b)
+    time {
+      var aMax = 0;
+      var bMax = 0;
+      var seqMax = 0
+      for (a <- -1000 to 1000; b <- -1000 to 1000) {
+        if (Prime.isPrime(b)) {
+          val seqLen = primeSequence(a, b)
+          if (seqLen > seqMax) {
+            seqMax = seqLen
+            aMax = a
+            bMax = b
+          }
         }
       }
+      println("Problem27: " + aMax * bMax)
     }
-    println("Problem27: " + aMax*bMax)
   }
 }

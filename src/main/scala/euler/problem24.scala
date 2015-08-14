@@ -4,6 +4,7 @@ import scala.collection.mutable._
 import scala.math._
 import BigInt._
 import java.io._
+import util.Time._
 
 // A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of
 // the digits 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we call
@@ -44,13 +45,14 @@ object Problem24 {
   }
  
 	def main(args: Array[String]) = {
-    //println(decreasingSequence(List(4,3,2,1,0)))
-    var seq = List(9,8,7,6,5,4,3,2,1,0)
-    for (i <- 1 to 1000000) {
-      if (i == 1000000) {
-        println("Problem 24: " + seq.reverse)
+    time {
+      var seq = List(9,8,7,6,5,4,3,2,1,0)
+      for (i <- 1 to 1000000) {
+        if (i == 1000000) {
+          println("Problem 24: " + seq.reverse)
+        }
+        seq = next(seq)
       }
-      seq = next(seq)
     }
   }
 }

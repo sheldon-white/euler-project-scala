@@ -4,6 +4,7 @@ import scala.collection.mutable._
 import scala.math._
 import BigInt._
 import java.io._
+import util.Time._
 
 // A unit fraction contains 1 in the numerator. The decimal representation of the unit fractions with denominators 2 to 10 are given:
 
@@ -45,7 +46,8 @@ object Problem26 {
   }
   
   def main(args: Array[String]) = {
-    val maxCycle: Int = (1 until 1000).map(calculateCycle(_)).max
-    println("Problem26: " + maxCycle)
+    time {
+      println("Problem26: " +  (1 until 1000).map(calculateCycle(_)).max)
+    }
   }
 }
